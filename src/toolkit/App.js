@@ -9,9 +9,8 @@ function App() {
         <Provider store={store}>
 
         <div>
-        <Countervalue />
-
-            <Counterbutton />
+        {/* <Countervalue /> */}
+        <Counterbutton />
             
         </div>
         </Provider>
