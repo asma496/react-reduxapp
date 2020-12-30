@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import { decrementAction, incrementAction, incrementdouble } from './store/CounterSlice'
 import uuid from 'react-uuid'
-import { addtodo} from './store/TodoSlice'
+import { addtodo, fetchpost} from './store/TodoSlice'
 import Viewtodo from './Viewtodo'
 
 
@@ -17,6 +17,10 @@ const Counterbutton = () => {
        
     }
 
+    
+    
+    
+
     const handlesubmit = (e)=>{
         e.preventDefault();
 
@@ -28,6 +32,7 @@ const Counterbutton = () => {
 
 
         dispatch(addtodo(title)) 
+        e.target[0].value=''
     }
 
 
@@ -37,7 +42,9 @@ const Counterbutton = () => {
             <button onClick ={ ()=> dispatch(incrementAction())}>+</button>
             <button onClick ={()=>dispatch(decrementAction())}>-</button>
             <button onClick = {()=> dispatch(incrementdouble())}>++</button>
+
            
+
 
 <br />
 
@@ -50,6 +57,8 @@ const Counterbutton = () => {
                    <input type='text' onChange={handlechange}/>
                    <button type= 'submit'>Add</button>
                </form>
+               <button onClick={()=> dispatch(fetchpost())}>post</button>
+
            </div>
            <Viewtodo />
         </div>
